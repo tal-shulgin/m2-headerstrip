@@ -1,0 +1,9 @@
+# Shulgin_Headerstrip
+Api/* magento/app/code/Shulgin/Headerstrip/api/
+Block/* magento/app/code/Shulgin/Headerstrip/Block/
+Controller/* magento/app/code/Shulgin/Headerstrip/Controller/
+Model/* magento/app/code/Shulgin/Headerstrip/Model/
+Ui/* magento/app/code/Shulgin/Headerstrip/Ui/
+etc/* magento/app/code/Shulgin/Headerstrip/etc/
+registration.php magento/app/code/Shulgin/Headerstrip/registration.php
+view/* magento/app/code/Shulgin/Headerstrip/view/

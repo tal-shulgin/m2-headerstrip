@@ -1,0 +1,75 @@
+<?php
+   /* @var $block Shulgin\Headerstrip\Block\HeaderStrips */
+    $msgs = $block->getStrip();
+?>
+<?php if (count($msgs)):?>
+<div class="header-slideshow-container">
+    <div class="header-slideshow-inner">
+
+        <?php foreach ($msgs as $msg):?>
+            <div class="headerMessagesSlides">
+                <span><?= $msg->getMsg()?></span>
+                <span><img src="<?= $msg->getImage()?>" /></span>
+            </div>
+        <?php endforeach; ?>
+
+        <a class="header-slideshow-prev" onclick="plusSlides(-1)">❮</a>
+        <a class="header-slideshow-next" onclick="plusSlides(1)">❯</a>
+    </div>
+</div>
+<?php /* ?>
+<div class="dot-container">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+<?php */ ?>
+
+<script>
+
+    require([], function() {
+    //<![CDATA[
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        setInterval(plusSlides, 10000, 1);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n)
+        {
+            //debugger;
+            var i;
+            var slides = document.getElementsByClassName("headerMessagesSlides");
+            //var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+
+            for (i = 0; i < slides.length; i++) {
+                //slides[i].style.display = "none";
+
+                slides[i].classList.remove('active');
+
+                // if(slides[i].classList.contains('active')) {
+                //     slides[i].classList.replace('active', '');
+                // }
+            }
+            //   for (i = 0; i < dots.length; i++) {
+            //       dots[i].className = dots[i].className.replace(" active", "");
+            //   }
+            //slides[slideIndex-1].style.display = "block";
+            slides[slideIndex-1].classList.add("active");
+            //dots[slideIndex-1].className += " active";
+        }
+        //]]>
+        }
+    );
+
+</script>
+<?php endif;?>

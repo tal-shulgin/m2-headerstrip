@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Shulgin::top_level" module="Shulgin_Headerstrip" resource="Magento_Backend::content" sortOrder="9999" title="Shulgin"/>
+		<add action="shulgin_headerstrip/strip/index" id="Shulgin_Headerstrip::shulgin_headerstrip_strip" module="Shulgin_Headerstrip" parent="Shulgin::top_level" resource="Magento_Backend::content" sortOrder="9999" title="strip"/>
+	</menu>
+</config>

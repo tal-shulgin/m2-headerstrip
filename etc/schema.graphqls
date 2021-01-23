@@ -1,0 +1,5 @@
+
+type StoreConfig {
+    
+    options_general_is_active  : String  @doc(description: "Query by options_general_is_active.") 
+}

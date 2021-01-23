@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Shulgin\Headerstrip\Api\StripRepositoryInterface" type="Shulgin\Headerstrip\Model\StripRepository"/>
+	<preference for="Shulgin\Headerstrip\Api\Data\StripInterface" type="Shulgin\Headerstrip\Model\Data\Strip"/>
+	<preference for="Shulgin\Headerstrip\Api\Data\StripSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	
+	<virtualType name="Shulgin\Headerstrip\Model\ResourceModel\Strip\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">shulgin_headerstrip_strip</argument>
+			<argument name="resourceModel" xsi:type="string">Shulgin\Headerstrip\Model\ResourceModel\Strip\Collection</argument>
+		</arguments>
+	</virtualType>
+
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="shulgin_headerstrip_strip_listing_data_source" xsi:type="string">Shulgin\Headerstrip\Model\ResourceModel\Strip\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+
+	<!-- Image Uploader -->
+	<virtualType name="VirtualTypeName" type="Magento\Catalog\Model\ImageUploader">
+		<arguments>
+			<argument name="baseTmpPath" xsi:type="string">Headerstrip/image</argument>
+			<argument name="basePath" xsi:type="string">Headerstrip/image</argument>
+			<argument name="allowedExtensions" xsi:type="array">
+				<item name="jpg" xsi:type="string">jpg</item>
+				<item name="jpeg" xsi:type="string">jpeg</item>
+				<item name="gif" xsi:type="string">gif</item>
+				<item name="png" xsi:type="string">png</item>
+			</argument>
+		</arguments>
+	</virtualType>
+
+	<type name="Shulgin\Headerstrip\Controller\Adminhtml\Strip\Uploader">
+		<arguments>
+			<argument name="imageUploader" xsi:type="object">VirtualTypeName</argument>
+		</arguments>
+	</type>
+	<!-- End Image Uploader -->
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Magento_Backend::stores">
+					<resource id="Magento_Backend::stores_settings">
+						<resource id="Magento_Config::config">
+							<resource id="Shulgin_Headerstrip::config_shulgin_headerstrip" title="options"/>
+						</resource>
+					</resource>
+				</resource>
+				<resource id="Shulgin_Headerstrip::strip" sortOrder="10" title="strip">
+					<resource id="Shulgin_Headerstrip::strip_save" sortOrder="10" title="Save strip"/>
+					<resource id="Shulgin_Headerstrip::strip_delete" sortOrder="20" title="Delete strip"/>
+					<resource id="Shulgin_Headerstrip::strip_update" sortOrder="30" title="Update strip"/>
+					<resource id="Shulgin_Headerstrip::strip_view" sortOrder="40" title="View strip"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

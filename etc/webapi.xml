@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="POST" url="/V1/shulgin-headerstrip/strip">
+		<service class="Shulgin\Headerstrip\Api\StripRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Shulgin_Headerstrip::strip_save"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/shulgin-headerstrip/strip/search">
+		<service class="Shulgin\Headerstrip\Api\StripRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Shulgin_Headerstrip::strip_view"/>
+		</resources>
+	</route>
+	<route method="GET" url="/V1/shulgin-headerstrip/strip/:stripId">
+		<service class="Shulgin\Headerstrip\Api\StripRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Shulgin_Headerstrip::strip_view"/>
+		</resources>
+	</route>
+	<route method="PUT" url="/V1/shulgin-headerstrip/strip/:stripId">
+		<service class="Shulgin\Headerstrip\Api\StripRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Shulgin_Headerstrip::strip_update"/>
+		</resources>
+	</route>
+	<route method="DELETE" url="/V1/shulgin-headerstrip/strip/:stripId">
+		<service class="Shulgin\Headerstrip\Api\StripRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Shulgin_Headerstrip::strip_delete"/>
+		</resources>
+	</route>
+</routes>

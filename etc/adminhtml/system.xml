@@ -15,6 +15,18 @@
 					<comment/>
 					<source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
 				</field>
+
+				<field id="show_arrows" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>show arrows</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="show_dots" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>show dots</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
 			</group>
 		</section>
 	</system>

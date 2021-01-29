@@ -8,22 +8,28 @@
 
         <?php foreach ($msgs as $msg):?>
             <div class="headerMessagesSlides">
-                <span><?= $msg->getMsg()?></span>
-                <span><img src="<?= $msg->getImage()?>" /></span>
+                <div class="msg" ><?= $msg->getMsg()?></div>
+                <div class="img"><img src="<?= $msg->getImage()?>" /></div>
             </div>
         <?php endforeach; ?>
 
-        <a class="header-slideshow-prev" onclick="plusSlides(-1)">❮</a>
-        <a class="header-slideshow-next" onclick="plusSlides(1)">❯</a>
+        <?php if($block->getShowArrows()) : ?>
+            <a class="header-slideshow-prev" onclick="plusSlides(-1)">❮</a>
+            <a class="header-slideshow-next" onclick="plusSlides(1)">❯</a>
+        <?php endif; ?>
+
     </div>
 </div>
-<?php /* ?>
+<?php if($block->getShowDots()) : ?>
 <div class="dot-container">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
+    <?php 
+    $dotCunter = 1;
+    foreach ($msgs as $msg):?>
+        <span class="dot" onclick="currentSlide(<?= $dotcunter ?>)"></span>
+  <?php $dotcunter++;
+    endforeach; ?>
 </div>
-<?php */ ?>
+<?php endif; ?>
 
 <script>
 
@@ -47,7 +53,8 @@
             //debugger;
             var i;
             var slides = document.getElementsByClassName("headerMessagesSlides");
-            //var dots = document.getElementsByClassName("dot");
+            var dots = document.getElementsByClassName("dot");
+
             if (n > slides.length) {slideIndex = 1}
             if (n < 1) {slideIndex = slides.length}
 
@@ -60,11 +67,19 @@
                 //     slides[i].classList.replace('active', '');
                 // }
             }
-            //   for (i = 0; i < dots.length; i++) {
-            //       dots[i].className = dots[i].className.replace(" active", "");
-            //   }
+
+            if(dots.length) {
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+            }
+
             //slides[slideIndex-1].style.display = "block";
             slides[slideIndex-1].classList.add("active");
+
+            if(dots.length) {
+                dots[slideIndex-1].classList.add("active");
+            }
             //dots[slideIndex-1].className += " active";
         }
         //]]>

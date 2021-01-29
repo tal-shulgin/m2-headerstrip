@@ -18,14 +18,18 @@ class HeaderStrips extends \Magento\Framework\View\Element\Template
     /** @var SearchCriteriaBuilder */
     protected $searchCriteriaBuilder;
 
+    protected $scopeConfig;
+
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         StripRepositoryInterface $stripRepositoryInterface,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         array $data = []
     ) {
         $this->stripRepositoryInterface = $stripRepositoryInterface;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
 
@@ -48,5 +52,15 @@ class HeaderStrips extends \Magento\Framework\View\Element\Template
         ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'Headerstrip/image/';
 
         return $mediaUrl . $item->getImg();
+    }
+
+    public function getShowArrows(){
+        return $this->scopeConfig->getValue('strip/general/show_arrows', 
+        \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getShowDots(){
+        return $this->scopeConfig->getValue('strip/general/show_dots', 
+        \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 }

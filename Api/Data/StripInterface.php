@@ -9,6 +9,7 @@ namespace Shulgin\Headerstrip\Api\Data;
 
 interface StripInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
+
     const STORE_ID = 'store_id';
     const STRIP_ID = 'strip_id';
     const IS_ACTIVE = 'is_active';
@@ -41,6 +42,21 @@ interface StripInterface extends \Magento\Framework\Api\ExtensibleDataInterface
      * @return \Shulgin\Headerstrip\Api\Data\StripInterface
      */
     public function setStoreId($storeId);
+
+    /**
+     * Retrieve existing extension attributes object or create a new one.
+     * @return \Shulgin\Headerstrip\Api\Data\StripExtensionInterface|null
+     */
+    public function getExtensionAttributes();
+
+    /**
+     * Set an extension attributes object.
+     * @param \Shulgin\Headerstrip\Api\Data\StripExtensionInterface $extensionAttributes
+     * @return $this
+     */
+    public function setExtensionAttributes(
+        \Shulgin\Headerstrip\Api\Data\StripExtensionInterface $extensionAttributes
+    );
 
     /**
      * Get image_inc

@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Shulgin\Headerstrip\Api;
 
+use Magento\Framework\Api\SearchCriteriaInterface;
+
 interface StripRepositoryInterface
 {
 

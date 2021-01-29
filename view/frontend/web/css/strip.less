@@ -12,18 +12,45 @@
 
         .headerMessagesSlides {
             display: none;
-            padding: 1em;
+            position: relative;
             text-align: center;
-            width: 87%;
+            width: 50%;
             margin: 0 auto;
             overflow: hidden;
-            min-height: 3em;
+            min-height: 2em;
             z-index: 1000;
+            box-sizing: content-box;
+
+            .msg {
+                display: inline-block;
+                width: 69%;
+                height: 3em;
+                border: 1px solid red;
+                z-index: 99999999999999;
+                position: relative;
+                float: right;
+                padding: 1em;
+                box-sizing: border-box;
+                line-height: 1em;
+            }
+            .img{
+                display: inline-block;
+                position: relative;
+                max-width: 30%;
+                height: 3em;
+                border: 1px solid red;
+                z-index: 99999999999999;
+                float: right;
+                img {
+                    object-fit: contain;
+                    height: inherit;
+                }
+            }
 
             &.active {
                 display: block !important;
 
-               > span {
+               > div {
                     // animation: marquee 11s cubic-bezier(0.1, 0.57, 0.39, 0.86) infinite;
                     // position: absolute;
                     z-index: 100;
@@ -37,7 +64,7 @@
             }
         }
         .header-slideshow-prev, .header-slideshow-next {
-            display: none;
+            display: inline;
             cursor: pointer;
             position: absolute;
             height: inherit;

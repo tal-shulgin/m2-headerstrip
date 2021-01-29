@@ -59,6 +59,26 @@ class Strip extends \Magento\Framework\Api\AbstractExtensibleObject implements S
     }
 
     /**
+     * Retrieve existing extension attributes object or create a new one.
+     * @return \Shulgin\Headerstrip\Api\Data\StripExtensionInterface|null
+     */
+    public function getExtensionAttributes()
+    {
+        return $this->_getExtensionAttributes();
+    }
+
+    /**
+     * Set an extension attributes object.
+     * @param \Shulgin\Headerstrip\Api\Data\StripExtensionInterface $extensionAttributes
+     * @return $this
+     */
+    public function setExtensionAttributes(
+        \Shulgin\Headerstrip\Api\Data\StripExtensionInterface $extensionAttributes
+    ) {
+        return $this->_setExtensionAttributes($extensionAttributes);
+    }
+
+    /**
      * Get image_inc
      * @return string|null
      */
